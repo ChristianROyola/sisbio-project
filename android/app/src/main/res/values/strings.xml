@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">sisbio-project</string>
+    <string name="title_activity_main">sisbio-project</string>
+    <string name="package_name">com.sisbiopro.angular</string>
+    <string name="custom_url_scheme">com.sisbiopro.angular</string>
+</resources>

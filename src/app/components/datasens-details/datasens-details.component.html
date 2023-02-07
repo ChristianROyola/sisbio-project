@@ -1,0 +1,70 @@
+<div *ngIf="currentDataSens" class="edit-form">
+  <h4>Data Sens</h4>
+  <form>
+    <div class="form-group">
+      <label for="title">Título</label>
+      <input
+        type="text"
+        class="form-control"
+        id="title"
+        [(ngModel)]="currentDataSens.title"
+        name="title"
+      />
+    </div>
+    <div class="form-group">
+      <label for="description">Detalle</label>
+      <input
+        type="text"
+        class="form-control"
+        id="description"
+        [(ngModel)]="currentDataSens.description"
+        name="description"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="val">Value</label>
+      <input
+        type="text"
+        class="form-control"
+        id="val"
+        [(ngModel)]="currentDataSens.value"
+        name="valor"
+      />
+    </div>
+
+    <div class="form-group">
+      <label><strong>Estado Alarma:</strong></label>
+      {{ currentDataSens.published ? "Revisado" : "Pendiente" }}
+    </div>
+  </form>
+
+  <button
+    class="badge badge-primary mr-2"
+    *ngIf="currentDataSens.published"
+    (click)="updatePublished(false)"
+  >
+    Revisar
+  </button>
+  <button
+    *ngIf="!currentDataSens.published"
+    class="badge badge-primary mr-2"
+    (click)="updatePublished(true)"
+  >
+    Revisar
+  </button>
+
+  <button class="badge badge-danger mr-2" (click)="deleteDataSens()">
+    Eliminar
+  </button>
+
+  <button type="submit" class="badge badge-success" (click)="updateDataSens()">
+    Actualizar
+  </button>
+  <p>{{ message }}</p>
+</div>
+
+<div *ngIf="!currentDataSens">
+  <br />
+  <p>No se puede acceder...</p>
+</div>

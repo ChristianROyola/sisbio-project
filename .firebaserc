@@ -1,0 +1,21 @@
+{
+  "targets": {
+    "testp-b7d7b": {
+      "hosting": {
+        "sisbio-project": [
+          "testp-b7d7b"
+        ]
+      }
+    },
+    "proyectofinal-b8ae1": {
+      "hosting": {
+        "sisbio-project": [
+          "proyectofinal-b8ae1"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "proyectofinal-b8ae1"
+  }
+}

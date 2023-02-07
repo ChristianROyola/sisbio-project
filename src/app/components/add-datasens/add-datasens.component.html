@@ -1,0 +1,44 @@
+<div class="submit-form">
+  <div *ngIf="!submitted">
+    <div class="form-group">
+      <label for="title">Titulo</label>
+      <input
+        type="text"
+        class="form-control"
+        id="title"
+        required
+        [(ngModel)]="dataSens.title"
+        name="title"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="description">Detalle</label>
+      <input
+        class="form-control"
+        id="description"
+        required
+        [(ngModel)]="dataSens.description"
+        name="description"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="description">Val</label>
+      <input
+        class="form-control"
+        id="val"
+        required
+        [(ngModel)]="dataSens.value"
+        name="description"
+      />
+    </div>
+
+    <button (click)="saveDataSens()" class="btn btn-success">Guardar</button>
+  </div>
+
+  <div *ngIf="submitted">
+    <h4>Registro realizado!!</h4>
+    <button class="btn btn-success" (click)="newDataSenses()">Crear</button>
+  </div>
+</div>
