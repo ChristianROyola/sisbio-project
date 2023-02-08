@@ -7,7 +7,7 @@ import { Datasens } from "../models/datasens.model";
 })
 export class DatasensService {
 
-  private dbPath = '/datasens/sensor1';
+  private dbPath = '/datasens/';
   dataSensRef: AngularFireList<Datasens>;
 
   constructor(private db: AngularFireDatabase) {
@@ -16,6 +16,11 @@ export class DatasensService {
 
   getAll(): AngularFireList<Datasens> {
     return this.dataSensRef;
+  }
+
+  getOne(key: string){
+    console.log("llega key",key)
+    return this.db.object(this.dbPath+key);
   }
 
   create(dataSens: Datasens): any {
@@ -33,5 +38,4 @@ export class DatasensService {
   deleteAll(): Promise<void> {
     return this.dataSensRef.remove();
   }
-
 }

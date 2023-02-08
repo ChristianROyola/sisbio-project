@@ -33,16 +33,24 @@ export class DatasensListComponent implements OnInit{
     this.dataSensService.getAll().snapshotChanges().pipe(
       map(changes =>
           changes.map(c =>
-            ({key: c.payload.key, ...c.payload.val()})
+            ({key: c.payload.key,
+              ...c.payload.val()})
           )
       )
     ).subscribe(data => {
       this.dataSens = data;
+      console.log("retrieveDataSens",this.dataSens);
     })
   }
 
   setActiveDataSens(dataSens: Datasens, index: number): void{
+
     this.currentDataSens = dataSens;
+    if (this.currentDataSens.key != null) {
+      this.dataSensService.getOne(this.currentDataSens.key).snapshotChanges().subscribe(news => {
+        console.log("get", news);
+      })
+    }
     this.currentIndex = index;
   }
 

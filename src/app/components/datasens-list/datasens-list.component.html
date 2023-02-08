@@ -1,14 +1,14 @@
 <div class="list row">
   <div class="col-md-6">
-    <h4>Lista DataSens</h4>
+    <h4>Lista DataSens - Paciente</h4>
     <ul class="list-group">
       <li
         class="list-group-item"
-        *ngFor="let tutorial of dataSens; let i = index"
+        *ngFor="let datasens of dataSens; let i = index"
         [class.active]="i == currentIndex"
-        (click)="setActiveDataSens(tutorial, i)"
+        (click)="setActiveDataSens(datasens, i)"
       >
-        {{ tutorial.title }}
+        {{ datasens.key }}
       </li>
     </ul>
 
