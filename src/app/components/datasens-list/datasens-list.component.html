@@ -49,6 +49,12 @@
       </li>
     </ul>
   </div>
-
+  <br>
+  <div>
+    <canvasjs-chart [options]="chartOptions" [styles]="{width: '100%', height: '360px'}" (chartInstance)="getChartInstance($event)"></canvasjs-chart>
+  </div>
 
 </div>
+
+
+

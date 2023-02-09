@@ -1,0 +1,6 @@
+{
+	"appId": "com.sisbiopro.angular",
+	"appName": "sisbio-project",
+	"webDir": "dist/sisbio-project",
+	"bundledWebRuntime": false
+}

@@ -16,15 +16,21 @@ import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
 import { provideAuth,getAuth } from '@angular/fire/auth';
 import { provideDatabase,getDatabase } from '@angular/fire/database';
 
+import * as CanvasJSAngularChart from '../assets/canvasjs.angular.component';
+import {HttpClientModule} from "@angular/common/http";
+var CanvasJSChart = CanvasJSAngularChart.CanvasJSChart;
+
 @NgModule({
   declarations: [
     AppComponent,
     AddDatasensComponent,
     DatasensDetailsComponent,
-    DatasensListComponent
+    DatasensListComponent,
+    CanvasJSChart
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule,
     FormsModule,
     AngularFireModule.initializeApp(environment.firebase),
