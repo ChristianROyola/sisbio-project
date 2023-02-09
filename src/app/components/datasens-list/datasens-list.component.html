@@ -1,13 +1,12 @@
-<div class="list row">
+<div class="list row" xmlns="http://www.w3.org/1999/html">
   <div class="col-md-6">
     <h4>Lista DataSens - Paciente</h4>
     <ul class="list-group">
       <li
         class="list-group-item"
         *ngFor="let datasens of dataSens; let i = index"
-        [class.active]="i == currentIndex"
-        (click)="setActiveDataSens(datasens, i)"
-      >
+
+        (click)="setActiveDataSens(datasens, i)">
         {{ datasens.key }}
       </li>
     </ul>
@@ -18,16 +17,38 @@
   </div>
 
   <div class="col-md-6">
-    <div *ngIf="currentDataSens">
-      <app-datasens-details
-        (refreshList)="refreshList()"
-        [dataSens]="currentDataSens"
-      ></app-datasens-details>
-    </div>
+    <div *ngIf="dataSens2">
+      <h4>Detalle Sensor - Paciente</h4>
 
-    <div *ngIf="!currentDataSens">
-      <br />
-      <p>Click en DataSens...</p>
+      <ul class="list-group">
+        <li class="list-group-item" *ngFor="let dato of dataSens2; let i = index"
+            [class.active]="i == currentIndex2"
+            (click)="setActiveDataSensDetail(dato,i)">
+          {{ dato.key }}
+        </li>
+      </ul>
     </div>
   </div>
+</div>
+
+<div *ngIf="currentDataSens2">
+  <br>
+  <br>
+  <h4 >Detalle Values - Sensor </h4>
+
+  <div class="center">
+    <ul class="list-group">
+      <li>
+        <h5> Titulo ---- :  {{ currentDataSens2.title }}</h5>
+      </li>
+      <li>
+        <h5>  Descripción ---- : {{ currentDataSens2.description }}</h5>
+      </li>
+      <li>
+        <h5> Valor ---- : {{ currentDataSens2.value }}</h5>
+      </li>
+    </ul>
+  </div>
+
+
 </div>

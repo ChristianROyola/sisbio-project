@@ -15,7 +15,6 @@ export class DatasensDetailsComponent implements OnInit{
   @Output() refreshList: EventEmitter<any> = new EventEmitter();
 
   currentDataSens: Datasens = {
-
     title: '',
     description: '',
     published: false,
@@ -24,6 +23,8 @@ export class DatasensDetailsComponent implements OnInit{
   message = '';
 
   constructor(private dataSensService: DatasensService) {
+    this.currentDataSens = { ...this.dataSens};
+    console.log('info para detalle',this.currentDataSens);
   }
 
   ngOnInit(): void {

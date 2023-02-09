@@ -9,18 +9,33 @@ export class DatasensService {
 
   private dbPath = '/datasens/';
   dataSensRef: AngularFireList<Datasens>;
+  dataSensRefDet: AngularFireList<Datasens> | undefined;
+  private ruta = ""
 
   constructor(private db: AngularFireDatabase) {
-    this.dataSensRef = db.list(this.dbPath)
+    this.dataSensRef = db.list(this.dbPath+"sensor1")
   }
 
-  getAll(): AngularFireList<Datasens> {
-    return this.dataSensRef;
+  getAll() {
+    return this.db.list(this.dbPath).snapshotChanges();
   }
 
-  getOne(key: string){
+  getOne2(key: string | null | undefined): AngularFireList<Datasens> {
+    this.ruta = "/datasens/"+key;
+    this.dataSensRefDet = this.db.list(this.ruta)
+    return this.dataSensRefDet;
+
+  }
+
+  getOne(key: string | null){
     console.log("llega key",key)
-    return this.db.object(this.dbPath+key);
+    this.ruta = "/datasens/"+key;
+    return this.db.object(this.ruta);
+  }
+
+  getDetailOne(key: string | null | undefined){
+    console.log("llega key",this.ruta+"/"+key)
+    return this.db.list(this.ruta+"/"+key);
   }
 
   create(dataSens: Datasens): any {

@@ -3,3 +3,11 @@
   max-width: 750px;
   margin: auto;
 }
+
+ h4 {text-align: center;}
+
+.center {
+  border: 1px solid;
+  display: flex;
+  justify-content: center;
+}
